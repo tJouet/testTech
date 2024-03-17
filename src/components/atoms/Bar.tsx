@@ -34,14 +34,13 @@ const Bar: React.FC<BarProps> = ({ emitAxisX, emitHoveredSection }) => {
 
   return (
     <>
-
-      <div className=" flex-row flex items-center justify-center"
+      <div className=" flex-row flex items-center justify-center px-6"
         onMouseMove={handleMouseMove}
       >
         {sectionsWithPercent.map((section, index) => (
           <div key={index}
-            className=" flex items-center justify-center border-r border-white h-6 "
-            style={{ width: `${section.percentage}%`, backgroundColor: section.type == "code" ? "#1E90FF" : "#FF4500" }}
+            className=" flex items-center justify-center border-r border-white h-6  "
+            style={{ width: section.percentage < 0.2 ? "0.3%" : `${section.percentage}%`, backgroundColor: section.type == "code" ? "#1E90FF" : "#FF4500" }}
             onMouseEnter={() => setHoveredSection(section.name)}
 
             onMouseLeave={() => setHoveredSection('')}

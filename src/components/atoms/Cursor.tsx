@@ -8,17 +8,24 @@ interface CursorProps {
 }
 
 const Cursor: React.FC<CursorProps> = ({ axisX, hoveredSection, children }) => {
+  const squareSize = 24
+  const arrowSize = 8
+  const topPos = squareSize - arrowSize
 
   return (
     <>
       <div className='bg-blue-300 w-full h-6 relative '>
-        <div className="flex flex-col justify-center items-center  absolute" style={{
-
-          transform: `translateX(${axisX}px)`
+        <div className="flex flex-col justify-center items-center  absolute pointer-events-none" style={{
+          top: `${topPos}px`,
+          transform: `translateX(${axisX}px )`
         }}>
 
-          <img src={ArrowDown} alt="arrow down" className='w-2 h-2' />
-          <div className='w-6 h-6 bg-yellow-saffran opacity-40 flex-row flex justify-between  '>
+          <img src={ArrowDown} alt="arrow down" style={{
+            width: `${arrowSize}px`, height: `${arrowSize}px`
+          }} />
+          <div className=' bg-yellow-saffran opacity-40 flex-row flex justify-between'
+            style={{ width: `${squareSize}px`, height: `${squareSize}px` }}
+          >
             <div className='w-[1px] h-full bg-yellow-bright'></div>
             <div className='w-[1px] h-full bg-yellow-bright'></div>
             <div className='w-[1px] h-full bg-yellow-bright'></div>
