@@ -27,7 +27,7 @@ const ScrollingBar = () => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative pt-12">
 
         <Cursor axisX={axisX} hoveredSection={hoveredSection} hexAxis={hexAxis}>
 
