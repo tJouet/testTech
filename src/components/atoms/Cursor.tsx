@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, ReactNode } from "react";
 import Beacon from "./Beacon";
 
 interface CursorProps {
   axisX: number;
   hoveredSection: string;
-  children: ReactElement;
+  children: ReactNode;
   hexAxis: string;
 }
 
@@ -14,14 +14,12 @@ const Cursor: React.FC<CursorProps> = ({
   children,
   hexAxis,
 }) => {
-  const textRef = useRef(0);
-
-  const centeredTextValue = `calc(${axisX}px - ${textRef.current.offsetWidth / 2}px)`;
+  const textRef = useRef<HTMLSpanElement>(null);
+  const offsetWidth = textRef.current?.offsetWidth ?? 0
+  const centeredTextValue = `calc(${axisX}px - ${offsetWidth / 2}px)`;
 
   return (
     <>
-
-
       <div className="relative">
         {axisX !== 0 &&
           <Beacon axisX={axisX} className={"h-6"} />}

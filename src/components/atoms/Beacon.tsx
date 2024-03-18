@@ -3,7 +3,7 @@ import ArrowDown from "../../assets/down-arrow.svg";
 
 interface BeaconProps {
   axisX: number;
-  className: string;
+  className?: string;
 }
 
 const Beacon: React.FC<BeaconProps> = ({ axisX, className }) => {
