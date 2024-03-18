@@ -20,8 +20,11 @@ const Cursor: React.FC<CursorProps> = ({
 
   return (
     <>
+
+
       <div className="relative">
-        <Beacon axisX={axisX} className={"h-6"} />
+        {axisX !== 0 &&
+          <Beacon axisX={axisX} className={"h-6"} />}
         {children}
         <div className="h-6">
           <div
